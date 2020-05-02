@@ -21,6 +21,7 @@ const mapDispatchProps = dispatch => ({
   }
 });
 
+// connect関数でCounterをラップしている。
 export default connect(
   mapStateProps,
   mapDispatchProps
