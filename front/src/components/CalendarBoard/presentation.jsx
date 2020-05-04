@@ -4,14 +4,11 @@ import {
   Typography
 } from "@material-ui/core";
 import CalendarElement from "../CalendarElement";
-import { createCalendar } from "../../services/calendar";
 import * as styles from "./style.css";
 
-const calendar = createCalendar();
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-const CalendarBoard = () => {
-  console.log(calendar);
+const CalendarBoard = ({ calendar, month }) => {
   return (
     <ul className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
@@ -30,7 +27,7 @@ const CalendarBoard = () => {
         ))}
         {calendar.map(c => (
           <li key={c.toISOString()}>
-            <CalendarElement day={c}>{c.format("D")}</CalendarElement>
+            <CalendarElement day={c} month={month} />
           </li>
         ))}
       </GridList>
